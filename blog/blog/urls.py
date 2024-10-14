@@ -1,0 +1,18 @@
+from django.urls import path
+from .views import BlogListView, BlogDetailView
+urlpatterns = [
+    path("post/<int:pk>/", BlogDetailView.as_view(), name="post_detail"),
+    path("", BlogListView.as_view(), name="home"),
+    ]
+
+
+
+
+# blog/urls.py
+from django.urls import path
+from .views import BlogListView, PostCreateView  
+
+urlpatterns = [
+    path("", BlogListView.as_view(), name="home"),
+    path("post/new/", PostCreateView.as_view(), name="post_new"),  
+]
